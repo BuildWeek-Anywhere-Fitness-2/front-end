@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useContext } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Container } from 'reactstrap';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Classes from './components/Classes/Classes';
+import AddClass from './components/Classes/AddClass';
+import  PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { ClassContext } from './components/context/classContext';
+import data from './data';
 
 function App() {
+
+	const [session, setSession] = useState([data]);
+
+	function addClass (item) {
+		setSession([...session, item])
+	};
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ClassContext.Provider value={{session, addClass}} >
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />    
+        <PrivateRoute path='/add-class' component={AddClass} />
+        <PrivateRoute path="/classes" component={Classes} />
+      </Switch>
+      <Footer />
+      </ClassContext.Provider>
     </div>
   );
 }
