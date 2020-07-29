@@ -1,46 +1,72 @@
-import React, { useState } from "react";
-import { Card, CardHeader, CardBody, CardTitle,Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import axios from 'axios';
+import React from  'react'
+import Button from '../Button'
 
-const Register = (props) => {
-    const [user, setUser] = useState({
-        username: "",
-        password: "",
-        confirmPassword: "",
-        role: "",
-        authCode: "",
-    })
+export default function UserForm(props) {
+    const {
+        values,
+        submit,
+        inputChange,
+        disabled,
+        errors,
+    } = props
 
-    const changeHandler = event => {
-        setUser({...user, [event.target.name]: event.target.value});
+    const onSubmit = evt => {
+        console.log('it works')
+        evt.preventDefault()
+        submit()
     }
 
-    const register = e => {
-      e.preventDefault();
-      if(user.role == "client"){
-      axios
-        .post(
-          "https://anywherefitness-backend.herokuapp.com/api/auth/registeruser",
-          user
-        )
-        .then(res => {
-          console.log("register")
-          localStorage.setItem("token", res.data.payload);
-          props.history.push("/login");
-        })
-        .catch(err => console.log(err));
+    const onInputChange = evt => {
+        console.log(values)
+        inputChange(evt.target.name, evt.target.value)
+    }
 
-    } else if(user.role == "instructor") {
-      axios
-      .post(
-        "https://anywherefitness-backend.herokuapp.com/api/auth/registertrainer",
-        user
-      )
-      .then(res => {
-        console.log("register")
-        localStorage.setItem("token", res.data.payload);
-        props.history.push("/login");
-      })
-      .catch(err => console.log(err));
-  };
-  } 
+    return (
+        <form className='form-container' onSubmit={onSubmit}>
+            <div className='form-group-submit'>
+            <h4>General Info</h4>
+                <div className='errors'>
+                    <div>{errors.name}</div>
+                    <div>{errors.username}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                </div>
+            </div>
+            <div className='form-group-inputs'>
+                <label>Name:&nbsp;
+                    <input
+                        value={values.name}
+                        onChange={onInputChange}
+                        name='name'
+                        type='text'
+                    />
+                </label>
+                <label>Username:&nbsp;
+                    <input
+                        value={values.username}
+                        onChange={onInputChange}
+                        name='username'
+                        type='text'
+                    />
+                </label>
+                <label>Email:
+                    <input
+                        value={values.email}
+                        onChange={onInputChange}
+                        name='email'
+                        type='text'
+                    />
+                </label>
+                <label>Password:
+                    <input
+                        value={values.password}
+                        onChange={onInputChange}
+                        name='password'
+                        type='text'
+                    />
+                </label>
+            </div>
+            <Button disabled={disabled} type="submit" onClick={onSubmit}>CREATE</Button>
+        </form>
+    )
+}
