@@ -18,7 +18,7 @@ const Login = (props) => {
     const login1 = e => {
         e.preventDefault();
         axiosWithAuth()
-            .post("https://anywherefitness-backend.herokuapp.com/api/auth/userlogin", formData)
+            .post("/api/auth/userlogin", formData)
             .then(res => {
                 console.log("hello");
                 console.log(res.data);
@@ -48,7 +48,7 @@ const Login = (props) => {
     const login = e => {
         e.preventDefault();
         axiosWithAuth()
-            .post("https://anywherefitness-backend.herokuapp.com/api/auth/trainerlogin", formData)
+            .post("/api/auth/trainerlogin", formData)
             .then(res => {
                 console.log("hello");
                 console.log(res.data);

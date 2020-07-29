@@ -8,7 +8,7 @@ export const getData = () => {
     return dispatch => {
       dispatch({ type: GET_DATA_START });
       axiosWithAuth()
-        .get('https://anywherefitness-backend.herokuapp.com/api/classes')
+        .get('/api/classes')
         .then(res => {
           dispatch({ type: GET_DATA_SUCCESS, payload: res.data });
         })
