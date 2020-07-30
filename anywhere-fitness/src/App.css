@@ -47,3 +47,28 @@ h1,h4{
 .errors{
   color: rgb(139, 8, 8);
 }
+.dashboard{
+  display:flex;
+  flex-direction: row;
+}
+.profile-info{
+  width:25%;
+  background-color: rgb(161, 17, 17);
+}
+.profile-info img{
+border-radius: 50%;
+}
+.create-class{
+  width:25%;
+  background-color: grey;
+}
+.previous-class{
+  width:25%;
+  background-color: black;
+  color:white;
+}
+.future-class{
+  width:25%;
+  background-color: black;
+  color: white;
+}
