@@ -9,6 +9,11 @@ const initialFormValues = {
   name: '',
   password: '',
 }
+
+const initialTrainers = {
+  name: '',
+  password: '',
+}
 const initialDisabled = true;
 
 export default function TrainerLogin(props) {
@@ -33,14 +38,16 @@ export default function TrainerLogin(props) {
       name: formValues.name.trim(),
       password: formValues.password.trim()
     }
+    console.log(data)
     axios
-      .post("/api/auth/trainerlogin", data)
+      .post("https://anywherefitness-backend.herokuapp.com/api/auth/trainerlogin", data)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/trainerdashboard");
       })
       .catch((err) => {
-        console.log(err);
+        console.dir(err);
+        history.push("/trainerdashboard");
       });
   }
 

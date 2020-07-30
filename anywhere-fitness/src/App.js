@@ -5,7 +5,7 @@ import UserReg from './components/UserRegister/UserReg'
 import Header from './components/Header'
 import Register from './components/Register/TrainerRegister.js'
 import TrainerLogin from './components/Login/TrainerLogin'
-import Dashboard from './components/Dashboard'
+import TrainerDashboard from './components/Dashboard/TrainerDashboard'
 import Home from './components/Home'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import {Classes, AddClass} from './components/Classes';
@@ -29,7 +29,7 @@ function App() {
           </Route>
 
           <Route path='/trainerdashboard'>
-            <Dashboard />
+            <TrainerDashboard />
           </Route>
 
           <Route path="/">
