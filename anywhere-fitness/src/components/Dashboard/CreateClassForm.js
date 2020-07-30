@@ -10,23 +10,23 @@ export default function CreateClass(props) {
         duration: "",
         intensity: "" 
     })
-    const { session, addClass }  = useContext();
+    // const { session, addClass }  = useContext();
 
-    useEffect(() =>{
-        setNewClass(session);
-        }, [])
+    // useEffect(() =>{
+    //     setNewClass(session);
+    //     }, [])
 
-    const handleSubmit = e => {
-        addClass(myClass);
-        console.log(session)
-    }
+    // const handleSubmit = e => {
+    //     addClass(myClass);
+    //     console.log(session)
+    // }
 
     const handleChanges = e => {
         let name = e.target.name;
         setMyClass({ ...myClass, [name]: e.target.value })
     }
     return(
-        <form onSubmit={handleSubmit}>
+        <form >
             <div className="create-class">
                 <h3>Create A Class</h3>
                 <label>

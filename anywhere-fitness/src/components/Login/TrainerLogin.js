@@ -29,6 +29,7 @@ export default function TrainerLogin(props) {
       const [formValues, setFormValues] = useState(initialFormValues)
       const [formErrors, setFormErrors] = useState(initialFormErrors)
       const [disabled, setDisabled ] = useState(initialDisabled)
+      const history = useHistory();
 
       useEffect(() => {
         LoginformSchema.isValid(formValues).then(valid => {

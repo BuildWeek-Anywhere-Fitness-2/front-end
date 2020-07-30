@@ -28,6 +28,7 @@ export default function UserForm(props) {
       const [formValues, setFormValues] = useState(initialFormValues)
       const [formErrors, setFormErrors] = useState(initialFormErrors)
       const [disabled, setDisabled ] = useState(initialDisabled)
+      const history = useHistory();
 
       useEffect(() => {
         RegisterformSchema.isValid(formValues).then(valid => {
@@ -44,6 +45,7 @@ export default function UserForm(props) {
           password: formValues.password.trim(),
         }
         postNewTrainer(newTrainer)
+        history.push('/dashboard')
       }
 
       const postNewTrainer = newTrainer => {
