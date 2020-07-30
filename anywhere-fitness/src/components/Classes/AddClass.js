@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Col, Container, Card, CardBody, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { axiosWithAuth } from '../../utils/axiosWithAuth'; 
-import { ClassContext } from '../context/classContext';
+import { ClassContext } from '../../context/classContext';
 import axios from 'axios';
 
 
@@ -15,6 +15,7 @@ const AddClass = (props) => {
     })
 
     const { session, addClass }  = useContext(ClassContext);
+    console.log('session', session, 'addClass', addClass);
 
     useEffect(() =>{
         setNewClass(session);
@@ -57,7 +58,7 @@ const AddClass = (props) => {
                             <FormGroup row>
                                 <Label for="startTime" sm={2}>Start Time</Label>
                                 <Col sm={10}>
-                                    <Input type="datetime-local" name="startTime" id="startTime" placeholder="with a placeholder" min={dateTimeString} onChange={handleChanges} />
+                                    <Input type="datetime-local" name="startTime" id="startTime" placeholder="with a placeholder"  onChange={handleChanges} />
                                 </Col>
                             </FormGroup>
 
