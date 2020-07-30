@@ -1,9 +1,9 @@
 import * as yup from 'yup'
 
 const LoginformSchema = yup.object().shape({
-    username: yup
+    name: yup
       .string()
-      .required("Username is required"),
+      .required("Name is required"),
     password: yup
       .string()
       .required("Password is required")
