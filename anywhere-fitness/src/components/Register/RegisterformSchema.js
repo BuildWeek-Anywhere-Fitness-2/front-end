@@ -1,5 +1,6 @@
 import * as yup from 'yup'
 
+
 const RegisterformSchema = yup.object().shape({
     name: yup
       .string()
