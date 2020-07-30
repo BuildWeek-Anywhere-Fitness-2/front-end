@@ -5,9 +5,6 @@ const RegisterformSchema = yup.object().shape({
     name: yup
       .string()
       .required("Name is Required"),
-    username: yup
-      .string()
-      .required("Username is required"),
     email: yup
       .string()
       .email("Email must be valid")

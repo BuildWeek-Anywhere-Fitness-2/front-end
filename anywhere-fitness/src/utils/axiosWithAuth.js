@@ -1,12 +1,16 @@
-import axios from 'axios';
+import Axios from 'axios';
 
-export const axiosWithAuth = () =>{
-    const token =localStorage.getItem('token');
+const baseURL = 'https://anywherefitness-backend.herokuapp.com';
 
-    return axios.create({
-        baseURL:'https://anywherefitness-backend.herokuapp.com',
+export const axiosWithAuth = () => {
+    const token = localStorage.getItem('token');
+
+    return Axios.create({
+        baseURL,
         headers: {
             Authorization: token
         }
     });
-}; 
+};
+
+export const axios = Axios.create({ baseURL });

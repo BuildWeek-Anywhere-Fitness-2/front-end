@@ -7,10 +7,10 @@ export default function ClassesCard (props) {
     return (
         <span className="class-cards">
             <Card>
-                <p> {props.singleClass.name} </p>
-                <p> {props.singleClass.duration} </p>
-                <p> {props.singleClass.type} </p>
-                <p> {props.singleClass.intensity} </p>
+                <p> {props.Class.Class} </p>
+                <p> {props.Class.Start} </p>
+                <p> {props.Class.End} </p>
+                <p> {props.Class.Trainer} </p>
                 <Button className="register-button" style={{marginLeft:"30%", marginBottom:"5%"}}> RSVP</Button>
             </Card>
         </span>
