@@ -32,7 +32,7 @@ function App() {
             <TrainerDashboard />
           </Route>
 
-          <Route path="/">
+          <Route path="/trainerhome">
             <Home />
           </Route>
 
