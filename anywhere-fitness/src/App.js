@@ -4,7 +4,7 @@ import './App.css';
 import Header from './components/Header'
 import Register from './components/Register/TrainerRegister.js'
 import TrainerLogin from './components/Login/TrainerLogin'
-import Dashboard from './components/Dashboard'
+import TrainerDashboard from './components/Dashboard/TrainerDashboard'
 
 import Home from './components/Home'
 // import styled from 'styled-components'
@@ -23,8 +23,8 @@ function App() {
           <Route path="/login">
             <TrainerLogin />
           </Route>
-          <Route path='"/trainerdashboard'>
-            <Dashboard />
+          <Route path='/dashboard'>
+            <TrainerDashboard />
           </Route>
           <Route path="/">
             <Home />
