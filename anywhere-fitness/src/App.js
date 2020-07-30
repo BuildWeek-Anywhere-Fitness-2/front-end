@@ -1,6 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
+import UserReg from './components/UserRegister/UserReg'
 import Header from './components/Header'
 import Register from './components/Register/TrainerRegister.js'
 import TrainerLogin from './components/Login/TrainerLogin'
