@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Register from './components/Register/Register'
+import UserReg from './components/UserRegister/UserReg'
 import RegisterformSchema from './components/Register/RegisterformSchema'
 import axios from 'axios'
 import * as yup from 'yup'
@@ -100,10 +101,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Trainers</h1>
+        <h2>Trainers</h2>
       </header>
 
       <Register 
+        values={formValues}
+        inputChange={inputChange}
+        submit={submit}
+        disabled={disabled}
+        errors={formErrors}
+      />
+      <h2>Clients</h2>
+      <UserReg 
         values={formValues}
         inputChange={inputChange}
         submit={submit}
