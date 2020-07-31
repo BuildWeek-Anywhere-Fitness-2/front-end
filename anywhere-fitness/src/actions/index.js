@@ -4,6 +4,20 @@ export const GET_DATA_START = "GET_DATA_START";
 export const GET_DATA_SUCCESS = "GET_DATA_SUCCESS";
 export const GET_DATA_FAILURE = "GET_DATA_FAILURE";
 
+export const ActionTypes = {
+  GET_CLASSES: 'GET_CLASSES'
+};
+
+export const getClasses = () => dispatch => {
+  axiosWithAuth.get('/api/classes')
+  .then(res => {
+    dispatch({
+      type: ActionTypes.GET_CLASSES,
+      payload: res.data,
+    })
+  })
+}
+
 export const getData = () => {
     return dispatch => {
       dispatch({ type: GET_DATA_START });
