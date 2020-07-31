@@ -20,6 +20,10 @@ function App() {
       <Header />
       <Switch>
 
+        <Route exact path="/">
+          <p>placeholder</p>
+        </Route>
+
         <Route path="/register">
           <Register />
           </Route>
@@ -31,6 +35,7 @@ function App() {
           <Route path='/trainerdashboard'>
             <TrainerDashboard />
           </Route>
+
 
           <Route path="/trainerhome">
             <Home />
