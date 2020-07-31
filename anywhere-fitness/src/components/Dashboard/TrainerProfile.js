@@ -11,4 +11,4 @@ export default function TrainerProfile() {
             <Button>Edit Info</Button>
         </div>
     )
-}
+} 

@@ -11,18 +11,11 @@ const initialFormValues = {
   password: "",
 };
 
-const initialTrainers = {
-  name: '',
-  email: '',
-  password: '',
-}
-
 const initialDisabled = true;
 
-export default function UserForm(props) {
+export default function UserForm() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormValues);
-  const [trainers, setTrainers] = useState(initialTrainers)
   const [disabled, setDisabled] = useState(initialDisabled);
   const history = useHistory();
 
@@ -63,7 +56,6 @@ export default function UserForm(props) {
       email: formValues.email.trim(),
       password: formValues.password.trim(),
     };
-console.log(newTrainer)
     axios
       .post("https://anywherefitness-backend.herokuapp.com/api/auth/registertrainer", newTrainer)
       .then((res) => {
