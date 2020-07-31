@@ -10,6 +10,7 @@ import Home from './components/Home'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import {Classes, AddClass} from './components/Classes';
 import { ClassContext} from './context/classContext';
+import UserLogin from './components/Login/UserLogin'
 
 
 function App() {
@@ -40,7 +41,16 @@ function App() {
           <Route path="/trainerhome">
             <Home />
           </Route>
-
+        <Route path='/UserReg'>
+          <UserReg />
+        </Route>
+        <Route path= '/UserLogin'>
+          <UserLogin/>
+        </Route>
+        
+        
+        
+        
         <PrivateRoute path='/addclass' component={AddClass}/>
         <PrivateRoute path="/classes" component={Classes} />
 
